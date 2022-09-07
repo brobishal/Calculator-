@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100vw;
+			height: 100vh;
+
+
+		}
+
+		.main_div {
+			/* Multi-position color stop: A gradient tilted 45 degrees,
+   with a gray bottom-left half and a orange top-right half,
+   with a hard line where the gradient changes from gray to orange */
+
+			/*  yesle 145 deg ma half white  buttom left bata and right top ma orange vayera janxa*/
+			background: linear-gradient(140deg,
+					#f4f4f4 0%,
+					#f4f4f4 50%,
+					orangered 50%,
+					orangered 100%);
+			width: 20vw;
+			height: 70vh;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+
+		}
+
+		.sub_div {
+			position: absolute;
+			width: 20vw;
+			height: 100%;
+			padding: 10px;
+
+
+		}
+
+		.top {
+			height: 20%;
+			background: orangered;
+			width: 100%;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+
+		}
+
+		.top input[type="text"] {
+			height: 100%;
+			background: orangered;
+			width: 100%;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border: none;
+			font-size: 30px;
+
+		}
+
+		.top h1 {
+			text-align: right;
+			padding: 20px 20px 0px 10px;
+			font-size: 40px;
+			color: gray;
+		}
+
+		.bottom {
+			background: #fff;
+			width: 100%;
+			height: 80%;
+			display: grid;
+			grid-template-columns: auto;
+			padding: 10px 4px;
+
+		}
+
+		.bottom input[type="button"] {
+			padding: 10px;
+			background: ddd;
+			border: none;
+			border-radius: 100%;
+			font-weight: 1000;
+			font-size: 20px;
+			color: gray;
+			margin: 2px;
+			width: 50px;
+			height: 50px;
+
+
+		}
+
+		.bottom .firstrow #btn {
+			background: orangered;
+			color: #fff;
+		}
+
+		.bottom .firstrow {
+			width: 100%;
+
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="main_div">
+			<div class="sub_div">
+				<div class="top">
+					<input type="text" id="input">
+				</div>
+
+				<div class="bottom">
+					<form name="forms">
+						<div class="firstrow">
+							<input type="button" id="seven" value="7" onclick="showData('7')">
+							<input type="button" id="eight" value="8" onclick="showData('8')">
+							<input type="button" id="nine" value="9" onclick="showData('9')">
+							<input type="button" id="add" value="+" onclick="showData('+')">
+						</div>
+						<div class="firstrow">
+							<input type="button" id="four" value="4" onclick="showData('4')">
+							<input type="button" id="five" value="5" onclick="showData('5')">
+							<input type="button" id="six" value="6" onclick="showData('6')">
+							<input type="button" id="sub" value="-" onclick="showData('-')">
+
+						</div>
+						<div class="firstrow">
+							<input type="button" id="one" value="1" onclick="showData('1')">
+							<input type="button" id="two" value="2" onclick="showData('2')">
+							<input type="button" id="three" value="3" onclick="showData('3')">
+							<input type="button" id="mul" value="*" onclick="showData('*')">
+						</div>
+						<div class="firstrow">
+							<input type="button" id="zero" value="0" onclick="showData('0')">
+							<input type="button" id="dot" value="." onclick="showData('.')">
+							<input type="button" id="div" value="/" onclick="showData('/')">
+							<!-- evaluting the function call eval() -->
+							<input type="button" id="equal" value="=" onclick="solve()">
+							<input type="button" value="Ac" onclick="clear()">
+
+
+						</div>
+						<div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- script -->
+	<script>
+		function showData(val) {
+			document.getElementById('input').value += val;
+
+		}
+
+		function solve() {
+			var data = document.getElementById('input').value;
+			var output = eval(data);
+			document.getElementById('input').value = output;
+		}
+
+		// clearing for the dispaly
+		function clear() {
+			document.getElementById('input').value = "";
+		}
+	</script>
+</body>
+
+</html>
